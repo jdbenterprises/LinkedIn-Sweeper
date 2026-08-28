@@ -3,20 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LinkedIn Sweeper — Prospect Intelligence Agent</title>
+    <title>LinkedIn Sweeper Agent</title>
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <main>
-      <section class="hero">
-        <nav class="nav"><div class="brand">🤖 LinkedIn Sweeper</div><a href="#demo">View agent demo</a></nav>
-        <div class="heroGrid"><div><p class="eyebrow">✦ Built for Osamudiamen Joel Osagie</p><h1>The warm-intelligence LinkedIn agent for uncommon business growth.</h1><p class="lede">Connect a LinkedIn account, discover prospects who can patronise JDB Consults, research them deeply, reveal the business gaps Joel can fill, and draft messages that feel like wisdom from a concerned friend—not a cold pitch.</p><div class="heroActions"><a class="button primary" href="#workflow">See workflow →</a><a class="button secondary" href="#messages">Read sample messages</a></div></div><div class="agentCard"><div class="pulse">Live prospect radar</div><h2>Today’s best opening</h2><p>A founder’s expansion announcement has no matching website narrative, sales page, or team enablement system.</p><div class="score">🔥 94% fit for Strategic Business Consulting</div></div></div>
+    <main class="appShell">
+      <aside class="sidebar">
+        <div class="logo"><span>LS</span><div><strong>LinkedIn Sweeper</strong><small>Prospect intelligence agent</small></div></div>
+        <nav>
+          <a href="#agent">Agent cockpit</a>
+          <a href="#research">Research dossier</a>
+          <a href="#messages">Message lab</a>
+          <a href="#guardrails">Guardrails</a>
+        </nav>
+        <div class="operatorCard">
+          <small>Operator</small>
+          <strong>Osamudiamen Joel Osagie</strong>
+          <p>JDB Consults: strategy, leadership, systems, brand growth, workshops, speaking, and coaching.</p>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Human-led prospecting automation</p>
+            <h1>Find the right prospects, research their blindspots, and draft warm outreach.</h1>
+          </div>
+          <div class="statusBadge"><span></span> Demo agent online</div>
+        </header>
+
+        <section id="agent" class="panel agentGrid">
+          <form id="prospectForm" class="controlPanel">
+            <div class="sectionTitle">
+              <p class="eyebrow">Sweep setup</p>
+              <h2>Tell the agent what Joel sells today.</h2>
+            </div>
+            <label>Business offer
+              <textarea id="offer" rows="4">I help founders and growing teams clarify strategy, build operating systems, improve brand positioning, train leaders, and turn attention into revenue without losing their human voice.</textarea>
+            </label>
+            <label>Ideal customer profile
+              <textarea id="icp" rows="4">African founders, service businesses, training companies, tech startups, creative brands, consultants, and SMEs with visible growth but weak systems, unclear offers, or under-converted attention.</textarea>
+            </label>
+            <label>LinkedIn/SalesQL-style search query
+              <input id="query" value="Founder OR CEO OR People Lead, Africa, hiring, expansion, rebrand, funding, training, consulting" />
+            </label>
+            <button type="submit">Run prospect sweep</button>
+          </form>
+
+          <div class="agentConsole">
+            <div class="consoleHeader"><strong>Agent reasoning trace</strong><button id="rerunBtn">Rerun</button></div>
+            <ol id="reasoningLog"></ol>
+          </div>
+        </section>
+
+        <section class="metrics">
+          <article><strong id="leadCount">0</strong><span>Prospects ranked</span></article>
+          <article><strong id="avgFit">0%</strong><span>Average Joel-fit score</span></article>
+          <article><strong id="draftCount">0</strong><span>Drafts prepared</span></article>
+          <article><strong>100%</strong><span>Human approval required</span></article>
+        </section>
+
+        <section id="research" class="panel">
+          <div class="sectionTitle rowTitle">
+            <div><p class="eyebrow">Prospect board</p><h2>Research dossiers and opportunity maps.</h2></div>
+            <select id="toneSelect">
+              <option value="bigBrother">Concerned big brother</option>
+              <option value="peer">Warm strategic peer</option>
+              <option value="advisor">Calm advisor</option>
+            </select>
+          </div>
+          <div id="prospectBoard" class="prospectBoard"></div>
+        </section>
+
+        <section id="messages" class="panel messagePanel">
+          <div class="sectionTitle">
+            <p class="eyebrow">Message lab</p>
+            <h2>Personalised drafts that do not sound salesy.</h2>
+          </div>
+          <div id="messageOutput" class="messageOutput"></div>
+        </section>
+
+        <section id="guardrails" class="panel guardrails">
+          <div class="sectionTitle"><p class="eyebrow">Safety layer</p><h2>Built to assist, not spam.</h2></div>
+          <div class="guardrailGrid">
+            <article><strong>Human approval</strong><p>No message is sent automatically. Joel reviews, edits, and approves.</p></article>
+            <article><strong>Public/contextual signals</strong><p>The agent prefers public posts, websites, directories, consented enrichment, and user-provided data.</p></article>
+            <article><strong>Daily pacing</strong><p>Outreach queues are throttled to avoid robotic activity and protect account reputation.</p></article>
+            <article><strong>Respectful copy</strong><p>Drafts avoid manipulation, fake familiarity, pressure, and invented facts.</p></article>
+          </div>
+        </section>
       </section>
-      <section class="positioning"><div class="sectionIntro"><p class="eyebrow">🧭 Joel-fit targeting</p><h2>Prospects are matched to Joel’s actual edge.</h2><p>The agent uses your public positioning—strategy, wisdom, system building, leadership development, speaking, workshops, and brand/marketing strategy—to prioritise people with urgent growth problems.</p></div><div class="pillGrid"><span>Strategic consulting</span><span>Leadership programs</span><span>Brand strategy</span><span>Workshops & training</span><span>Keynote speaking</span><span>1-on-1 coaching</span></div></section>
-      <section id="workflow" class="workflow"><div class="sectionIntro"><p class="eyebrow">⚡ Sweeper operating system</p><h2>From search to dossier to warm outreach.</h2></div><div class="steps"><article><b>①</b><h3>Connect the account</h3><p>Authorize LinkedIn-style prospecting workflows, import saved searches, and keep daily actions human-paced with safety throttles.</p></article><article><b>②</b><h3>Sweep for buyers</h3><p>Find brands and decision-makers that match Joel’s consulting, leadership, systems, speaking, and brand-growth offers.</p></article><article><b>③</b><h3>Build the dossier</h3><p>Create a living prospect brief with role, company context, posts, emails, website signals, recent moves, and urgency markers.</p></article><article><b>④</b><h3>Spot the opening</h3><p>Translate weak positioning, stalled content, unfocused offers, team friction, or growth bottlenecks into clear business opportunities.</p></article><article><b>⑤</b><h3>Draft like a big brother</h3><p>Write warm, non-salesy messages that sound observant, helpful, and specific—not pushy, generic, or automation-flavoured.</p></article></div></section>
-      <section class="intel"><div><p class="eyebrow">📋 Research checklist</p><h2>Every lead becomes a useful brief.</h2><ul><li>✅ LinkedIn bio, headline, hiring posts, founder comments, and recent activity</li><li>✅ Brand website positioning, lead magnets, case studies, offers, and conversion gaps</li><li>✅ Public email patterns, newsletter pages, directories, and compliant enrichment sources</li><li>✅ Recent launches, events, grants, partnerships, roles, podcast appearances, and press</li></ul></div><div class="glassPanel"><h3>Opportunity lens</h3><p>A founder posting consistently but sending traffic to a vague homepage → offer a sharper conversion path and signature offer audit.</p><p>A growing team hiring managers quickly → suggest a leadership operating rhythm workshop before culture becomes accidental.</p><p>A startup celebrating funding but lacking customer education → draft a market-education content system and community flywheel.</p><p>A creative brand with strong visuals but weak retention → propose customer journey mapping, loyalty loops, and referral rituals.</p></div></section>
-      <section id="demo" class="demo"><div class="sectionIntro"><p class="eyebrow">🛡 Human-first automation</p><h2>Example prospect intelligence board.</h2></div><div class="cards"><article class="prospect"><h3>Adaeze Nwokolo</h3><strong>Founder, Afiari Foods</strong><p><b>Signal:</b> Shared a post about expanding into two new cities but their website still sells like a single-location brand.</p><p><b>Gap:</b> Expansion story is not converted into trust assets, distributor messaging, or a scalable customer-acquisition system.</p><blockquote>Adaeze, I saw your expansion note and smiled because the ambition is obvious. One thing I’d quietly fix before the new-city push gets noisy is how the website tells the expansion story...</blockquote></article><article class="prospect"><h3>Tomiwa Briggs</h3><strong>People Lead, OrbitPay</strong><p><b>Signal:</b> Hiring team leads while posting about execution speed and founder dependency.</p><p><b>Gap:</b> Leadership development and decision-making systems may lag behind growth, creating hidden operational drag.</p><blockquote>Tomiwa, this may be unsolicited, but your recent hiring posts made me think OrbitPay is entering the phase where culture needs architecture, not vibes alone...</blockquote></article><article class="prospect"><h3>Mira Bello</h3><strong>CEO, Studio Nola</strong><p><b>Signal:</b> Beautiful brand presence with high engagement, but recent comments ask for pricing, packages, and next steps.</p><p><b>Gap:</b> Demand exists, but offer clarity and conversion prompts are leaking warm leads.</p><blockquote>Mira, your brand already has attention—which is the expensive part. I noticed people asking practical buying questions in the comments, and I think a small offer-clarity fix could protect revenue...</blockquote></article></div></section>
-      <section id="messages" class="messageLab"><div><p class="eyebrow">💌 Message lab</p><h2>The agent writes with warmth, specificity, and restraint.</h2><p>It drafts connection notes, follow-ups, voice-note scripts, comment suggestions, and advisory “I noticed this” messages. Every draft includes the observation, why it matters, a generous idea, and a soft invitation.</p></div><div class="message"><span>Connection note</span><p>“Hi Chidera — I noticed the way you’re repositioning your training company for corporate clients. Small thought: your posts show strong conviction, but your offer page may not be carrying that same authority yet. Happy to connect; I enjoy following builders who are entering a sharper season.”</p></div></section>
     </main>
+    <script src="/src/agent.js"></script>
   </body>
 </html>
