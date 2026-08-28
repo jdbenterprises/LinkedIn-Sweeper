@@ -5,7 +5,8 @@
   "description": "LinkedIn prospect research and warm outreach agent concept for JDB Consults.",
   "scripts": {
     "start": "python3 -m http.server 4173",
-    "build": "node scripts/build.js"
+    "build": "node scripts/build.js",
+    "test": "node --check src/agent.js && node tests/validate-zapier.js"
   },
   "dependencies": {},
   "devDependencies": {}
