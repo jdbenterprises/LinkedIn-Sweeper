@@ -6,7 +6,7 @@
   "scripts": {
     "start": "python3 -m http.server 4173",
     "build": "node scripts/build.js",
-    "test": "node --check src/agent.js && node tests/validate-zapier.js"
+    "test": "node --check src/agent.js && node --check src/quietPitchCore.js && node --check cli/quiet-pitch-agent.js && node tests/validate-zapier.js && node tests/quiet-pitch-core.test.js"
   },
   "dependencies": {},
   "devDependencies": {}

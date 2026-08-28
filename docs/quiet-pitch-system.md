@@ -61,3 +61,14 @@ Banned phrases:
 - HOSTILE_OPT_OUT: stop/unsubscribe/remove/spam language.
 
 Opt-out is permanent. Do not draft a reply after opt-out.
+
+## Local CLI agent
+
+The repo includes an executable local agent for non-UI use:
+
+```bash
+node cli/quiet-pitch-agent.js research examples/prospect.json
+node cli/quiet-pitch-agent.js reply examples/reply.json
+```
+
+The research mode returns a structured dossier. The reply mode returns classification, draft reply, do-not-contact status, and next action.
