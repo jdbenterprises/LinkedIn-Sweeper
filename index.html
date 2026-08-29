@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LinkedIn Sweeper Agent</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <main class="appShell">
+      <aside class="sidebar">
+        <div class="logo"><span>LS</span><div><strong>LinkedIn Sweeper</strong><small>Prospect intelligence agent</small></div></div>
+        <nav>
+          <a href="#agent">Agent cockpit</a>
+          <a href="#research">Research dossier</a>
+          <a href="#messages">Message lab</a>
+          <a href="#guardrails">Guardrails</a>
+        </nav>
+        <div class="operatorCard">
+          <small>Operator</small>
+          <strong>Osamudiamen Joel Osagie</strong>
+          <p>JDB Consults: premium strategy, positioning, revenue loops, executive visibility, leadership systems, and warm relationship-led growth.</p>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Human-led prospecting automation</p>
+            <h1>The Quiet Pitch agent: research, qualify, draft, classify replies, and protect the relationship.</h1>
+          </div>
+          <div class="statusBadge"><span></span> Demo agent online</div>
+        </header>
+
+        <section id="agent" class="panel agentGrid">
+          <form id="prospectForm" class="controlPanel">
+            <div class="sectionTitle">
+              <p class="eyebrow">Sweep setup</p>
+              <h2>Tell the agent what Joel sells today.</h2>
+            </div>
+            <label>Business offer
+              <textarea id="offer" rows="4">Premium strategy, positioning, sales systems, executive visibility, fractional CMO thinking, leadership operating rhythm, and Fort Business Club-style peer support.</textarea>
+            </label>
+            <label>Ideal customer profile
+              <textarea id="icp" rows="4">Consumer and lifestyle brands globally, especially decision-makers in the US, UK, Canada, Australia, and Western Europe who show expansion, hiring, rebrand, launch, or revenue-loop pressure.</textarea>
+            </label>
+            <label>LinkedIn/SalesQL/Clay-style discovery query
+              <input id="query" value="Founder OR CEO OR People Lead, consumer brand, lifestyle brand, expansion, hiring, rebrand, launch, premium consulting budget" />
+            </label>
+            <button type="submit">Run prospect sweep</button>
+          </form>
+
+          <div class="agentConsole">
+            <div class="consoleHeader"><strong>Agent reasoning trace</strong><button id="rerunBtn">Rerun</button></div>
+            <ol id="reasoningLog"></ol>
+          </div>
+        </section>
+
+        <section class="metrics">
+          <article><strong id="leadCount">0</strong><span>Prospects ranked</span></article>
+          <article><strong id="avgFit">0%</strong><span>Average Joel-fit score</span></article>
+          <article><strong id="priorityCount">0</strong><span>Priority leads</span></article>
+          <article><strong>100%</strong><span>Human approval required</span></article>
+        </section>
+
+        <section id="research" class="panel">
+          <div class="sectionTitle rowTitle">
+            <div><p class="eyebrow">Prospect board</p><h2>R.E.A.C.H. dossiers, recent developments, gaps, and opener options.</h2></div>
+          </div>
+          <div id="prospectBoard" class="prospectBoard"></div>
+        </section>
+
+        <section id="messages" class="panel messagePanel">
+          <div class="sectionTitle">
+            <p class="eyebrow">Mode 1 message lab</p>
+            <h2>Personalised openers that end in curiosity, not a pitch.</h2>
+          </div>
+          <div id="messageOutput" class="messageOutput"></div>
+        </section>
+
+        <section class="panel replyPanel">
+          <form id="replyForm" class="controlPanel">
+            <div class="sectionTitle">
+              <p class="eyebrow">Mode 2 reply handler</p>
+              <h2>Classify replies and draft the next touch.</h2>
+            </div>
+            <div class="replyGrid">
+              <label>Sample reply
+                <select id="sampleReply">
+                  <option value="0">Interested</option>
+                  <option value="1">Lukewarm</option>
+                  <option value="2">Objection</option>
+                  <option value="3">Not now</option>
+                  <option value="4">Opt-out</option>
+                </select>
+              </label>
+              <label>Touch number
+                <input id="touchNumber" type="number" min="1" max="5" value="2" />
+              </label>
+            </div>
+            <label>Incoming reply
+              <textarea id="replyText" rows="4">This is sharp. What would you change first if you were looking at the offer page?</textarea>
+            </label>
+            <button type="submit">Classify reply</button>
+          </form>
+          <div id="replyOutput" class="messageOutput"></div>
+        </section>
+
+        <section id="guardrails" class="panel guardrails">
+          <div class="sectionTitle"><p class="eyebrow">Safety layer</p><h2>Built to assist, not spam.</h2></div>
+          <div class="guardrailGrid">
+            <article><strong>Human approval</strong><p>No message is sent automatically. Joel reviews, edits, and approves.</p></article>
+            <article><strong>Public/contextual signals</strong><p>The agent prefers public posts, websites, directories, consented enrichment, and user-provided data.</p></article>
+            <article><strong>Daily pacing</strong><p>Outreach queues are throttled to avoid robotic activity and protect account reputation.</p></article>
+            <article><strong>Respectful copy</strong><p>Drafts avoid manipulation, fake familiarity, pressure, and invented facts.</p></article>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/src/agent.js"></script>
+  </body>
+</html>

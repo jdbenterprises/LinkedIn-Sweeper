@@ -1,0 +1,135 @@
+:root {
+  color: #10201a;
+  background: #edf5ef;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+
+.appShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px;
+  background: #10201a;
+  color: #fff8ea;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo { display: flex; gap: 14px; align-items: center; }
+.logo span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: #d7a84f;
+  color: #10201a;
+  font-weight: 900;
+}
+.logo small, .operatorCard small { display: block; color: #b8c9c0; margin-top: 4px; }
+.sidebar nav { display: grid; gap: 10px; }
+.sidebar nav a { padding: 12px 14px; border: 1px solid rgba(255,255,255,.12); border-radius: 14px; color: #e8f1eb; }
+.operatorCard { margin-top: auto; padding: 18px; border-radius: 22px; background: rgba(255,255,255,.08); }
+.operatorCard p { color: #d9e7df; line-height: 1.6; }
+
+.workspace { padding: clamp(22px, 4vw, 56px); }
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.eyebrow { margin: 0 0 10px; color: #1d6a4c; font-weight: 900; text-transform: uppercase; letter-spacing: .13em; font-size: .75rem; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1 { font-size: clamp(2.2rem, 5vw, 5.4rem); line-height: .92; letter-spacing: -.07em; max-width: 980px; }
+h2 { font-size: clamp(1.7rem, 3vw, 3rem); line-height: 1; letter-spacing: -.045em; }
+h3 { font-size: 1.45rem; margin-bottom: 4px; }
+h4 { margin-bottom: 8px; color: #1d6a4c; }
+.statusBadge { display: inline-flex; gap: 10px; align-items: center; background: #fffaf0; border: 1px solid #dbe7df; border-radius: 999px; padding: 10px 14px; font-weight: 800; white-space: nowrap; }
+.statusBadge span { width: 10px; height: 10px; border-radius: 999px; background: #24c875; box-shadow: 0 0 0 6px rgba(36,200,117,.15); }
+
+.panel, .metrics article {
+  background: rgba(255,250,240,.88);
+  border: 1px solid #dbe7df;
+  border-radius: 30px;
+  box-shadow: 0 24px 70px rgba(16,32,26,.09);
+}
+.panel { padding: clamp(18px, 3vw, 34px); margin-bottom: 24px; }
+.agentGrid { display: grid; grid-template-columns: minmax(280px, .9fr) minmax(280px, 1.1fr); gap: 24px; }
+.sectionTitle { margin-bottom: 20px; }
+.rowTitle { display: flex; justify-content: space-between; gap: 18px; align-items: center; }
+
+.controlPanel { display: grid; gap: 16px; }
+label { display: grid; gap: 8px; color: #365047; font-weight: 800; }
+textarea, input, select {
+  width: 100%;
+  border: 1px solid #cbdad2;
+  border-radius: 18px;
+  padding: 14px 15px;
+  background: #fff;
+  color: #10201a;
+  outline-color: #1d6a4c;
+}
+button {
+  border: 0;
+  border-radius: 18px;
+  padding: 14px 18px;
+  background: #1d6a4c;
+  color: #fff8ea;
+  font-weight: 900;
+  cursor: pointer;
+}
+.agentConsole { background: #10201a; color: #fff8ea; border-radius: 24px; padding: 22px; min-height: 100%; }
+.consoleHeader { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.consoleHeader button { background: #d7a84f; color: #10201a; padding: 9px 12px; border-radius: 12px; }
+.agentConsole li { margin: 16px 0; color: #d9e7df; line-height: 1.6; }
+
+.metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+.metrics article { padding: 20px; }
+.metrics strong { display: block; font-size: 2rem; letter-spacing: -.04em; }
+.metrics span { color: #5a7067; }
+
+.prospectBoard { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.prospectCard { padding: 22px; border: 1px solid #dbe7df; border-radius: 24px; background: #fff; }
+.cardTop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.cardTop span, .cardTop strong { background: #edf5ef; color: #1d6a4c; border-radius: 999px; padding: 7px 10px; font-size: .85rem; }
+.muted { color: #60776d; }
+dl { display: grid; grid-template-columns: 95px 1fr; gap: 8px 12px; padding: 14px; border-radius: 18px; background: #f6faf7; }
+dt { color: #60776d; font-weight: 800; }
+dd { margin: 0; }
+ul { padding-left: 19px; color: #314940; line-height: 1.6; }
+.prospectCard button { width: 100%; margin-top: 8px; }
+
+.messageOutput pre {
+  white-space: pre-wrap;
+  margin: 0;
+  padding: clamp(18px, 3vw, 30px);
+  border-radius: 24px;
+  background: #10201a;
+  color: #fff8ea;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+.guardrailGrid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.guardrailGrid article { background: #fff; border-radius: 20px; padding: 18px; border: 1px solid #dbe7df; }
+.guardrailGrid p { color: #5a7067; line-height: 1.6; }
+
+@media (max-width: 980px) {
+  .appShell { grid-template-columns: 1fr; }
+  .sidebar { position: static; height: auto; }
+  .topbar, .agentGrid, .rowTitle { grid-template-columns: 1fr; display: grid; }
+  .metrics, .prospectBoard, .guardrailGrid { grid-template-columns: 1fr; }
+}
